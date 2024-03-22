@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Review Sentiment Prediction</title>
+    <style>
+        body {
+            background-color: lavender; /* Set background color to lavender */
+        }
+        form {
+            margin-top: 20px;
+            text-align: center;
+        }
+        textarea {
+            width: 80%;
+            height: 100px;
+            padding: 10px;
+            margin-bottom: 10px;
+            resize: none;
+        }
+        input[type="submit"] {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to Review Sentiment Prediction</h1>
+    <p>Please enter your review below:</p>
+    <form action="/" method="post">
+        <textarea id="review" name="review" placeholder="Enter your review here..." required></textarea><br>
+        <input type="submit" value="Predict">
+    </form>
+    {% if sentiment is not none %}
+    <p>Predicted Sentiment: {% if sentiment == 1 %} Positive {% elif sentiment == 0 %} Negative {% else %} Neutral {% endif %}</p>
+    <p>F1 Score: {{ f1 }}</p>
+    {% endif %}
+</body>
+</html>
+
+
+
+
+
+
